@@ -7,7 +7,7 @@ package Poliformismo;
 
 /**
  *
- * @author ghandi
+ * @author Ilton
  */
 public class Soma extends OperacaoMatematica {
 
