@@ -13,7 +13,6 @@ public class EmissaoNotaFiscalService {
 	}
 	
 	public void emitir(Cliente cliente, Produto produto) {
-		// TODO emite a nota fiscal aqui...
 		
 		this.notificador.notificar(cliente, "Nota fiscal do produto "
 				+ produto.getNome() + " foi emitida!");

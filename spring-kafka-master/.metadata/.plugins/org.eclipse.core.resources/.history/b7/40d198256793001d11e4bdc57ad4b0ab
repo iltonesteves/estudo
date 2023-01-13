@@ -1,0 +1,84 @@
+package br.xksoberbado.producer.controller;
+
+import java.util.Random;
+
+import org.apache.kafka.clients.producer.ProducerRecord;
+import org.apache.kafka.clients.producer.RecordMetadata;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.kafka.core.RoutingKafkaTemplate;
+import org.springframework.kafka.support.SendResult;
+import org.springframework.util.concurrent.ListenableFuture;
+import org.springframework.util.concurrent.ListenableFutureCallback;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.sun.net.httpserver.Authenticator.Failure;
+
+import br.xksoberbado.producer.model.City;
+import br.xksoberbado.producer.model.Person;
+
+@RestController
+public class TestController {
+
+//    @Autowired
+	@Autowired
+	private KafkaTemplate<String, String> kafkaTemplate;
+//
+//    @Autowired
+//    private KafkaTemplate<String, Serializable> jsonKafkaTemplate;
+
+	@Autowired
+	private RoutingKafkaTemplate kafkaTemplate1;
+
+	@GetMapping("send")
+	public void send() {
+//        IntStream.range(0, 51)
+//                .boxed()
+//                .forEach(n -> kafkaTemplate.send("topic-1", "Número: " + n));
+		kafkaTemplate.send("topic-1", "Teste do topic-1");
+	}
+
+//    @GetMapping("send-2")
+//    public void send2() {
+//        kafkaTemplate.send("my-topic", "Teste do my-topic");
+//    }
+
+	@GetMapping("send-person")
+	public void sendPerson() {
+//        jsonKafkaTemplate.send("person-topic", new Person("João", new Random().nextInt(50)));
+		kafkaTemplate1.send("person-topic", new Person("João", new Random().nextInt(50)));
+	}
+
+	@GetMapping("send-city")
+	public void sendCity() {
+		Object ncity;
+//        jsonKafkaTemplate.send("city-topic", new City("Porto Alegre", "RS"));
+		kafkaTemplate1.send("city-topic", new City("Porto Alegre", "RS")).addCallback(success -> {
+			var city = ((Object) success.getProducerRecord().value());
+			System.out.println( "city....    "+ city.toString());
+			System.out.println(success.getProducerRecord().value());
+		}, Failure -> System.out.println("erro"));
+	}
+
+	@GetMapping("sendf")
+	public void sendMessage() {
+
+		String topicName = "topic-1";
+		String message = "topic-1";
+		ListenableFuture<SendResult<String, String>> future = kafkaTemplate.send(topicName, message);
+
+		future.addCallback(new ListenableFutureCallback<SendResult<String, String>>() {
+
+			@Override
+			public void onSuccess(SendResult<String, String> result) {
+				System.out.println("Sent message= ok............ " + result);
+			}
+
+			@Override
+			public void onFailure(Throwable ex) {
+				System.out.println("Unable to send message=[" + message + "] due to : " + ex.getMessage());
+			}
+		});
+	}
+}

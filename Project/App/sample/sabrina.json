@@ -1,0 +1,219 @@
+{
+    "theme": "green",
+    "backgroundDesktop": "http://localhost:3000/sample/bg_green.png",
+    "screens": [
+        {
+            "id": "cover",
+            "label": "Sobre",
+            "menuActive": true,
+            "nextPage": "/metrics",
+            "data": {
+                "name": "Sabrina Sato",
+                "gender": "female",
+                "image": "http://localhost:3000/sample/cover.png"
+            },
+            "vids": [
+                "http://localhost:3000/videos/sample_sabrina.mp4"
+            ]
+        },
+        {
+            "id": "metrics",
+            "label": "Métricas",
+            "menuActive": false,
+            "nextPage": "/links",
+            "prevPage": "/",
+            "data": {
+                "main": [
+                    {
+                        "label": "Seguidores",
+                        "value": "30M"
+                    },
+                    {
+                        "label": "Média de likes",
+                        "value": "77K"
+                    },
+                    {
+                        "label": "Média de comentários",
+                        "value": "22"
+                    },
+                    {
+                        "label": "Taxa de Engajamento",
+                        "value": "20%"
+                    },
+                    {
+                        "label": "Publicações",
+                        "value": "3729"
+                    },
+                    {
+                        "label": "Posts",
+                        "value": "22"
+                    }
+                ],
+                "details": [
+                    {
+                        "label": "Público",
+                        "type": "piechart",
+                        "desc": "Média por gênero",
+                        "values": [
+                            {
+                                "x": "Feminino",
+                                "y": "71"
+                            },
+                            {
+                                "x": "Masculino",
+                                "y": "29"
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Views",
+                        "type": "barchart",
+                        "desc": "Evolução seguidores",
+                        "values": [
+                            {
+                                "x": "2022-03",
+                                "y": "86000"
+                            },
+                            {
+                                "x": "2022-04",
+                                "y": "81000"
+                            },
+                            {
+                                "x": "2022-05",
+                                "y": "89000"
+                            },
+                            {
+                                "x": "2022-06",
+                                "y": "96000"
+                            },
+                            {
+                                "x": "2022-07",
+                                "y": "99000"
+                            },
+                            {
+                                "x": "2022-08",
+                                "y": "120000"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "links",
+            "label": "Meus links",
+            "menuActive": false,
+            "nextPage": "/jobs",
+            "prevPage": "/metrics",
+            "data": {
+                "links": [
+                    {
+                        "title": "Rede Social",
+                        "label": "Instagram",
+                        "url": "https://www.instagram.com/sabrinasato/",
+                        "bgColor": "#EAEFDE"
+                    },
+                    {
+                        "title": "Rede Social",
+                        "label": "Youtube",
+                        "url": "https://www.youtube.com/canalsabrinasato",
+                        "bgColor": "#DFE7CC"
+                    },
+                    {
+                        "title": "Rede Social",
+                        "label": "Facebook",
+                        "url": "https://www.facebook.com/oficialsabrinasato",
+                        "bgColor": "#CBE2BD"
+                    },
+                    {
+                        "title": "Rede Social",
+                        "label": "Tiktok",
+                        "url": "https://www.tiktok.com/@sabrinasato?lang=en",
+                        "bgColor": "#A4CA8D"
+                    },
+                    {
+                        "title": "Rede Social",
+                        "label": "Twitter",
+                        "url": "https://twitter.com/sabrinasato",
+                        "bgColor": "#A4CA8D"
+                    },
+                    {
+                        "title": "Loja",
+                        "label": "Sabrina Sato Eyewear",
+                        "url": "https://www.sabrinasatoeyewear.com.br/",
+                        "bgColor": "#A4CA8D"
+                    },
+                    {
+                        "title": "Queridinhos da Amazon",
+                        "label": "Loja da Sabrina",
+                        "url": "https://www.amazon.com.br/b?ie=UTF8&node=21179625011",
+                        "bgColor": "#A4CA8D"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "jobs",
+            "label": "Jobs",
+            "menuActive": false,
+            "nextPage": "/deals",
+            "prevPage": "/links",
+            "data": {
+                "jobs": [
+                    {
+                        "name": "Inoar",
+                        "description": "Lorem Ipsum dolor sit amet",
+                        "image": "http://localhost:3000/sample/sample_job.png",
+                        "result": {
+                            "likes": 2390,
+                            "comments": 322
+                        }
+                    },
+                    {
+                        "name": "Pom Pom",
+                        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae magna nec quam molestie pharetra nec sed nunc. Nulla sed purus hendrerit, commodo nisi ac, cursus dui. Praesent augue nibh, mattis non fringilla ut, vehicula quis erat. Nullam eget euismod justo. Integer vel massa consequat, semper tortor et, consequat metus. Etiam a leo a libero dictum sollicitudin. Maecenas ultricies nunc eros, eget varius enim vestibulum egestas.",
+                        "image": "http://localhost:3000/sample/iza2.jpg",
+                        "result": {}
+                    }
+                ]
+            }
+        },
+        {
+            "id": "deals",
+            "label": "Mimos",
+            "menuActive": false,
+            "nextPage": "/contact",
+            "prevPage": "/jobs",
+            "data": {
+                "deals": [
+                    {
+                        "name": "Spotify",
+                        "title": "Plano estudantil com 50% por 3 meses",
+                        "desc": "Cupom Spotify",
+                        "image": "http://localhost:3000/sample/sample_spotify.png",
+                        "kind": "coupon",
+                        "value": "300,00",
+                        "link": "https://spotify.com"
+                    },
+                    {
+                        "name": "Playstation 5",
+                        "title": "Promoção PS5",
+                        "desc": "Playstation 5 promoção",
+                        "image": "http://localhost:3000/sample/sample_ps5.jpg",
+                        "kind": "product",
+                        "value": "4500,00",
+                        "link": "https://americanas.com.br/"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "contact",
+            "label": "Contato",
+            "menuActive": false,
+            "nextPage": "/",
+            "prevPage": "/deals",
+            "data": {}
+        }
+    ]
+}

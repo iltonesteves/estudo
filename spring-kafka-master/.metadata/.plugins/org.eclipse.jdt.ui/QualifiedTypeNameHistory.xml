@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
+    <fullyQualifiedTypeName name="javax.websocket.SendResult"/>
+    <fullyQualifiedTypeName name="org.springframework.util.concurrent.ListenableFutureCallback"/>
+    <fullyQualifiedTypeName name="org.springframework.kafka.support.SendResult"/>
+    <fullyQualifiedTypeName name="org.springframework.util.concurrent.ListenableFuture"/>
+    <fullyQualifiedTypeName name="java.io.Serializable"/>
+    <fullyQualifiedTypeName name="org.springframework.kafka.core.KafkaTemplate"/>
+    <fullyQualifiedTypeName name="br.xksoberbado.consumer.repository.MessageRepository"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+</qualifiedTypeNameHistroy>
