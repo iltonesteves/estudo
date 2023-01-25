@@ -15,7 +15,7 @@ public class ConsumerReturn {
 	private final Logger logger = LoggerFactory.getLogger(ConsumerReturn.class);
 	
 
-	@KafkaListener(topics = "${topic.bora-praticar-retorno}", groupId = "group_id2")
+	@KafkaListener(topics = "${topic.bora-praticar-retorno}", groupId = "group_id")
 	public void consume(String message) throws IOException {
 		logger.info("Mensagem Recebida -> {}", message);
 

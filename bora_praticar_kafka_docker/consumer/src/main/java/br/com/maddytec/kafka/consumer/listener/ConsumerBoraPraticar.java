@@ -25,7 +25,7 @@ public class ConsumerBoraPraticar {
 	public void consume(String message) throws IOException {
 		logger.info("Consumindo mensagem {}", message);
 	
-		sendMessage(message);
+		sendMessage(message+" ok.......");
 
 	}
 

@@ -1,8 +1,19 @@
 version: '3'
 
 services:
+  mysql-dev:
+        container_name: pc-mysql
+        image: mysql:5.7
+        environment:
+            MYSQL_ROOT_PASSWORD: pc2408
+            MYSQL_DATABASE: pombocorreio
+        ports:
+            - 3306:3306
+        volumes:
+            - "/c/mysql_mensagem/data:/var/lib/mysql:rw"
+
   zookeeper:
-    container_name: zookeeper
+    container_name: pc-zookeeper
     image: confluentinc/cp-zookeeper:latest
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
@@ -11,7 +22,7 @@ services:
       - 22181:2181
 
   kafka:
-    container_name: kafka
+    container_name: pc-kafka
     image: confluentinc/cp-kafka:latest
     depends_on:
       - zookeeper
@@ -24,3 +35,19 @@ services:
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+
+  kafdrop:
+    container_name: pc-kafdrop
+    image: obsidiandynamics/kafdrop:latest
+    networks:
+      - broker-kafka
+    depends_on:
+      - kafka
+    ports:
+      - 19000:9000
+    environment:
+      KAFKA_BROKERCONNECT: kafka:29092
+
+networks:
+  broker-kafka:
+    driver: bridge
