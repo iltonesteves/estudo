@@ -1,6 +1,7 @@
 package com.pombocorreio.pcrelacionamentos.model;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
@@ -9,6 +10,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.springframework.validation.annotation.Validated;
+
+import com.pombocorreio.pcrelacionamentos.services.anotation.BodyValid;
+import com.pombocorreio.pcrelacionamentos.services.anotation.IdadeMinima;
 
 @Entity
 @Table(name = "tb_template")
@@ -22,7 +28,8 @@ public class Template implements Serializable {
 	private String name;
 	private String type;
 	private String body;
-	private LocalDateTime datacadastro; // = LocalDateTime.now()
+	@IdadeMinima(valor=18)
+	private LocalDate datacadastro; // = LocalDateTime.now()
 	private LocalDateTime dataalteracao;
 
 	@ManyToOne
@@ -32,7 +39,7 @@ public class Template implements Serializable {
 
 	}
 
-	public Template(Long id, String name, String type, String body, LocalDateTime datacadastro,
+	public Template(Long id, String name, String type, String body, LocalDate datacadastro,
 			LocalDateTime dataalteracao) {
 		super();
 		this.id = id;
@@ -51,19 +58,21 @@ public class Template implements Serializable {
 		this.id = id;
 	}
 
+	@BodyValid
 	public String getName() {
 		return name;
 	}
 
+	@BodyValid
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	public LocalDateTime getDatacadastro() {
+	public LocalDate getDatacadastro() {
 		return datacadastro;
 	}
 
-	public void setDatacadastro(LocalDateTime datacadastro) {
+	public void setDatacadastro(LocalDate datacadastro) {
 		this.datacadastro = datacadastro;
 	}
 
@@ -100,10 +109,12 @@ public class Template implements Serializable {
 		this.type = type;
 	}
 
+	@BodyValid
 	public String getBody() {
 		return body;
 	}
 
+	@BodyValid
 	public void setBody(String body) {
 		this.body = body;
 	}

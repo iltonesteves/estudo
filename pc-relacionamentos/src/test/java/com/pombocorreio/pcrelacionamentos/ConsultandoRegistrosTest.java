@@ -156,7 +156,7 @@ public class ConsultandoRegistrosTest {
 		template.setName("Data de vencimento");
 		template.setType("WhatsApp");
 		template.setBody("texto a ser impresso");
-		template.setDatacadastro(LocalDateTime.now());
+//		template.setDatacadastro(LocalDateTime.now());
 		
 		template.setEmpresa(empresa);
 		

@@ -29,8 +29,8 @@ public class User implements Serializable {
 	@Column(unique = true)
 	private String email;
 	private String senha;
-	private LocalDateTime dataCadastro; // = LocalDateTime.now()
-	private LocalDateTime dataAlteracao;
+	private LocalDateTime datacadastro; // = LocalDateTime.now()
+	private LocalDateTime dataalteracao;
 
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(
@@ -51,8 +51,8 @@ public class User implements Serializable {
 		this.name = name;
 		this.email = email;
 		this.senha = senha;
-		this.dataCadastro = dataCadastro;
-		this.dataAlteracao = dataAlteracao;
+		this.datacadastro = datacadastro;
+		this.dataalteracao = dataalteracao;
 	}
 
 	public Long getId() {
@@ -88,20 +88,20 @@ public class User implements Serializable {
 		this.senha = senha;
 	}
 
-	public LocalDateTime getDataCadastro() {
-		return dataCadastro;
+	public LocalDateTime getDatacadastro() {
+		return datacadastro;
 	}
 
-	public void setDataCadastro(LocalDateTime dataCadastro) {
-		this.dataCadastro = dataCadastro;
+	public void setDatacadastro(LocalDateTime datacadastro) {
+		this.datacadastro = datacadastro;
 	}
 
-	public LocalDateTime getDataAlteracao() {
-		return dataAlteracao;
+	public LocalDateTime getDataalteracao() {
+		return dataalteracao;
 	}
 
-	public void setDataAlteracao(LocalDateTime dataAlteracao) {
-		this.dataAlteracao = dataAlteracao;
+	public void setDataalteracao(LocalDateTime dataalteracao) {
+		this.dataalteracao = dataalteracao;
 	}
 
 	@Override
@@ -142,7 +142,7 @@ public class User implements Serializable {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", name=" + name + ", email=" + email + ", senha=" + senha + ", dataCadastro="
-				+ dataCadastro + ", dataAlteracao=" + dataAlteracao + ", roles=" + roles + "]";
+				+ datacadastro + ", dataAlteracao=" + dataalteracao + ", roles=" + roles + "]";
 	}
 
 }
